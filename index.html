@@ -3,14 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Digital Root Calculator</title>
+
+<title>Vinod Saharan - Digital Root Calculator</title>
 
 <style>
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Segoe UI, sans-serif;
+    font-family:'Segoe UI',sans-serif;
 }
 
 body{
@@ -18,86 +20,165 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    background:linear-gradient(135deg,#4facfe,#00f2fe);
+    background:linear-gradient(135deg,#141e30,#243b55);
+    padding:20px;
 }
 
 .container{
-    width:90%;
-    max-width:450px;
-    background:#fff;
+    width:100%;
+    max-width:500px;
+
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,0.15);
+
+    border-radius:25px;
     padding:30px;
-    border-radius:20px;
-    box-shadow:0 15px 35px rgba(0,0,0,.2);
+
     text-align:center;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.35);
 }
 
+/* Brand Section */
+
+.brand{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:15px;
+    margin-bottom:20px;
+}
+
+.logo{
+    width:75px;
+    height:75px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#ff9800,#ff5722);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:#fff;
+    font-size:30px;
+    font-weight:bold;
+
+    box-shadow:0 10px 20px rgba(255,87,34,.35);
+}
+
+.brand-text h2{
+    color:#fff;
+    font-size:28px;
+}
+
+.brand-text p{
+    color:#ddd;
+    font-size:14px;
+}
+
+/* Heading */
+
 h1{
-    color:#333;
+    color:#fff;
+    margin-top:10px;
     margin-bottom:10px;
 }
 
-.subtitle{
-    color:#666;
+.description{
+    color:#ddd;
     margin-bottom:25px;
+    line-height:1.5;
 }
+
+/* Input */
 
 .input-box{
     width:100%;
     padding:15px;
-    border:2px solid #4facfe;
-    border-radius:12px;
-    font-size:18px;
+
+    border:none;
     outline:none;
-    transition:.3s;
+
+    border-radius:15px;
+
+    font-size:18px;
+    text-align:center;
+
+    margin-bottom:15px;
 }
 
-.input-box:focus{
-    border-color:#007bff;
-    box-shadow:0 0 10px rgba(0,123,255,.3);
-}
+/* Button */
 
 .btn{
     width:100%;
-    margin-top:15px;
     padding:15px;
+
     border:none;
-    border-radius:12px;
-    background:linear-gradient(135deg,#4facfe,#007bff);
-    color:white;
+    border-radius:15px;
+
     font-size:18px;
+    font-weight:bold;
+
     cursor:pointer;
+
+    color:white;
+
+    background:linear-gradient(
+    135deg,
+    #00c6ff,
+    #0072ff
+    );
+
     transition:.3s;
 }
 
 .btn:hover{
     transform:translateY(-2px);
-    box-shadow:0 10px 20px rgba(0,123,255,.3);
+    box-shadow:0 10px 25px rgba(0,114,255,.4);
 }
 
-.result{
-    margin-top:25px;
-    padding:20px;
-    border-radius:15px;
-    background:#f5f8ff;
+/* Result */
+
+.result-box{
     display:none;
+
+    margin-top:25px;
+
+    background:rgba(255,255,255,.1);
+
+    border-radius:20px;
+
+    padding:20px;
 }
 
-.result h2{
-    color:#007bff;
-    margin-bottom:10px;
+.result-box h3{
+    color:#fff;
 }
 
 .answer{
-    font-size:42px;
+    font-size:55px;
     font-weight:bold;
-    color:#28a745;
+    color:#00ff88;
+
+    margin-top:10px;
 }
 
+/* Footer */
+
 .footer{
-    margin-top:20px;
-    color:#777;
+    margin-top:25px;
+
+    color:#ccc;
     font-size:13px;
 }
+
+.footer span{
+    color:#00ff88;
+    font-weight:bold;
+}
+
 </style>
 </head>
 
@@ -105,29 +186,52 @@ h1{
 
 <div class="container">
 
+    <div class="brand">
+
+        <div class="logo">
+            VS
+        </div>
+
+        <div class="brand-text">
+            <h2>Vinod Saharan</h2>
+            <p>Official Calculator Tool</p>
+        </div>
+
+    </div>
+
     <h1>🔢 Digital Root Calculator</h1>
-    <p class="subtitle">
-        12 अंकों तक की संख्या दर्ज करें और अंतिम Single Digit Result प्राप्त करें
-    </p>
+
+    <div class="description">
+        12 अंकों तक की संख्या दर्ज करें और उसका अंतिम
+        Single Digit Result प्राप्त करें।
+    </div>
 
     <input
         type="text"
-        id="numberInput"
         maxlength="12"
+        id="numberInput"
         class="input-box"
-        placeholder="उदाहरण: 123456789123">
+        placeholder="123456789123">
 
-    <button class="btn" onclick="calculateRoot()">
+    <button
+        class="btn"
+        onclick="calculateRoot()">
         Calculate Result
     </button>
 
-    <div class="result" id="resultBox">
-        <h2>Single Digit Result</h2>
-        <div class="answer" id="answer">0</div>
+    <div class="result-box" id="resultBox">
+
+        <h3>Single Digit Result</h3>
+
+        <div class="answer" id="answer">
+            0
+        </div>
+
     </div>
 
     <div class="footer">
-        Made with ❤️ using HTML, CSS & JavaScript
+        © 2026 <span>Vinod Saharan</span><br>
+        All Rights Reserved
     </div>
 
 </div>
@@ -136,23 +240,44 @@ h1{
 
 function calculateRoot(){
 
-    let num = document.getElementById("numberInput").value.trim();
+    let num =
+    document
+    .getElementById("numberInput")
+    .value
+    .trim();
 
     if(!/^\d+$/.test(num)){
-        alert("कृपया केवल अंक दर्ज करें।");
+        alert("कृपया केवल अंक दर्ज करें");
         return;
     }
 
-    let total = [...num].reduce((sum,d)=>sum + Number(d),0);
+    let total =
+    [...num]
+    .reduce(
+        (sum,d)=>
+        sum + Number(d),
+        0
+    );
 
     while(total > 9){
-        total = String(total)
-            .split('')
-            .reduce((sum,d)=>sum + Number(d),0);
+
+        total =
+        String(total)
+        .split('')
+        .reduce(
+            (sum,d)=>
+            sum + Number(d),
+            0
+        );
     }
 
-    document.getElementById("answer").innerText = total;
-    document.getElementById("resultBox").style.display = "block";
+    document
+    .getElementById("answer")
+    .innerText = total;
+
+    document
+    .getElementById("resultBox")
+    .style.display = "block";
 }
 
 </script>
