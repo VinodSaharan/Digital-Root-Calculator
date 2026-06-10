@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Vinod Saharan - Digital Root Calculator</title>
+<title>Vinod Saharan | Digital Root Calculator</title>
+
+<meta name="author" content="Vinod Saharan">
+<meta name="description" content="Digital Root Calculator by Vinod Saharan">
 
 <style>
 
@@ -20,91 +23,84 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    background:linear-gradient(135deg,#141e30,#243b55);
+    background:linear-gradient(135deg,#0f172a,#1e3a8a,#0f172a);
     padding:20px;
 }
 
 .container{
     width:100%;
-    max-width:500px;
+    max-width:520px;
 
     background:rgba(255,255,255,0.08);
-    backdrop-filter:blur(15px);
+    backdrop-filter:blur(18px);
 
     border:1px solid rgba(255,255,255,0.15);
 
     border-radius:25px;
-    padding:30px;
+    padding:35px;
 
     text-align:center;
 
-    box-shadow:0 15px 35px rgba(0,0,0,.35);
+    box-shadow:0 15px 40px rgba(0,0,0,.4);
 }
 
-/* Brand Section */
+/* Logo Area */
 
 .brand{
     display:flex;
-    justify-content:center;
+    flex-direction:column;
     align-items:center;
-    gap:15px;
     margin-bottom:20px;
 }
 
-.logo{
-    width:75px;
-    height:75px;
-    border-radius:50%;
-    background:linear-gradient(135deg,#ff9800,#ff5722);
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    color:#fff;
-    font-size:30px;
-    font-weight:bold;
-
-    box-shadow:0 10px 20px rgba(255,87,34,.35);
+.logo-img{
+    width:120px;
+    height:120px;
+    object-fit:contain;
+    margin-bottom:12px;
+    filter:drop-shadow(0 0 18px #2196f3);
 }
 
-.brand-text h2{
+.brand h2{
     color:#fff;
     font-size:28px;
+    margin-bottom:5px;
 }
 
-.brand-text p{
-    color:#ddd;
+.brand p{
+    color:#cbd5e1;
     font-size:14px;
+    letter-spacing:1px;
 }
 
-/* Heading */
+/* Title */
 
-h1{
-    color:#fff;
+.title{
+    color:white;
+    font-size:30px;
+    margin-top:15px;
+}
+
+.subtitle{
+    color:#dbeafe;
     margin-top:10px;
-    margin-bottom:10px;
-}
-
-.description{
-    color:#ddd;
     margin-bottom:25px;
-    line-height:1.5;
+    line-height:1.6;
 }
 
 /* Input */
 
 .input-box{
     width:100%;
-    padding:15px;
+    padding:16px;
 
     border:none;
     outline:none;
 
     border-radius:15px;
 
-    font-size:18px;
     text-align:center;
+    font-size:20px;
 
     margin-bottom:15px;
 }
@@ -113,22 +109,22 @@ h1{
 
 .btn{
     width:100%;
-    padding:15px;
+    padding:16px;
 
     border:none;
     border-radius:15px;
 
+    cursor:pointer;
+
     font-size:18px;
     font-weight:bold;
-
-    cursor:pointer;
 
     color:white;
 
     background:linear-gradient(
-    135deg,
-    #00c6ff,
-    #0072ff
+        135deg,
+        #00c6ff,
+        #0072ff
     );
 
     transition:.3s;
@@ -136,7 +132,10 @@ h1{
 
 .btn:hover{
     transform:translateY(-2px);
-    box-shadow:0 10px 25px rgba(0,114,255,.4);
+
+    box-shadow:
+    0 10px 25px
+    rgba(0,114,255,.45);
 }
 
 /* Result */
@@ -146,7 +145,7 @@ h1{
 
     margin-top:25px;
 
-    background:rgba(255,255,255,.1);
+    background:rgba(255,255,255,.08);
 
     border-radius:20px;
 
@@ -154,15 +153,15 @@ h1{
 }
 
 .result-box h3{
-    color:#fff;
+    color:white;
+    margin-bottom:10px;
 }
 
 .answer{
-    font-size:55px;
-    font-weight:bold;
     color:#00ff88;
 
-    margin-top:10px;
+    font-size:60px;
+    font-weight:bold;
 }
 
 /* Footer */
@@ -170,12 +169,12 @@ h1{
 .footer{
     margin-top:25px;
 
-    color:#ccc;
+    color:#cbd5e1;
     font-size:13px;
 }
 
 .footer span{
-    color:#00ff88;
+    color:#00c6ff;
     font-weight:bold;
 }
 
@@ -188,42 +187,47 @@ h1{
 
     <div class="brand">
 
-        <div class="logo">
-            VS
-        </div>
+        <img
+        src="vs-logo.png"
+        alt="VS Logo"
+        class="logo-img">
 
-        <div class="brand-text">
-            <h2>Vinod Saharan</h2>
-            <p>Official Calculator Tool</p>
-        </div>
+        <h2>Vinod Saharan</h2>
+        <p>Official Calculator Tool</p>
 
     </div>
 
-    <h1>🔢 Digital Root Calculator</h1>
+    <h1 class="title">
+        🔢 Digital Root Calculator
+    </h1>
 
-    <div class="description">
-        12 अंकों तक की संख्या दर्ज करें और उसका अंतिम
-        Single Digit Result प्राप्त करें।
-    </div>
+    <p class="subtitle">
+        Enter up to 12 digits and get the final
+        Single Digit Result instantly.
+    </p>
 
     <input
-        type="text"
-        maxlength="12"
-        id="numberInput"
-        class="input-box"
-        placeholder="123456789123">
+    type="text"
+    maxlength="12"
+    id="numberInput"
+    class="input-box"
+    placeholder="123456789123">
 
     <button
-        class="btn"
-        onclick="calculateRoot()">
+    class="btn"
+    onclick="calculateRoot()">
         Calculate Result
     </button>
 
-    <div class="result-box" id="resultBox">
+    <div
+    class="result-box"
+    id="resultBox">
 
         <h3>Single Digit Result</h3>
 
-        <div class="answer" id="answer">
+        <div
+        class="answer"
+        id="answer">
             0
         </div>
 
@@ -231,7 +235,7 @@ h1{
 
     <div class="footer">
         © 2026 <span>Vinod Saharan</span><br>
-        All Rights Reserved
+        Made with ❤️ in India 🇮🇳
     </div>
 
 </div>
@@ -247,7 +251,7 @@ function calculateRoot(){
     .trim();
 
     if(!/^\d+$/.test(num)){
-        alert("कृपया केवल अंक दर्ज करें");
+        alert("Please enter digits only.");
         return;
     }
 
