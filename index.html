@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Root Calculator</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 500px;
+            margin: 50px auto;
+            text-align: center;
+            padding: 20px;
+        }
+
+        input, button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px;
+        }
+
+        #result {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Digital Root Calculator</h2>
+
+    <p>12 अंकों तक की संख्या दर्ज करें</p>
+
+    <input type="text" id="numberInput" maxlength="12" placeholder="संख्या दर्ज करें">
+
+    <br>
+
+    <button onclick="calculateDigitalRoot()">
+        Calculate
+    </button>
+
+    <div id="result"></div>
+
+    <script>
+        function calculateDigitalRoot() {
+            const num = document.getElementById("numberInput").value;
+
+            if (!/^\d+$/.test(num)) {
+                document.getElementById("result").innerHTML =
+                    "कृपया केवल अंक दर्ज करें।";
+                return;
+            }
+
+            let total = [...num].reduce((sum, digit) => sum + Number(digit), 0);
+
+            while (total > 9) {
+                total = String(total)
+                    .split('')
+                    .reduce((sum, digit) => sum + Number(digit), 0);
+            }
+
+            document.getElementById("result").innerHTML =
+                "Single Digit Result = " + total;
+        }
+    </script>
+
+</body>
+</html>
