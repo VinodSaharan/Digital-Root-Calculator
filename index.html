@@ -6,13 +6,15 @@
 
 <title>Vinod Saharan | Digital Root Calculator</title>
 
-<style>
+<meta name="author" content="Vinod Saharan">
+<meta name="description" content="Digital Root Calculator by Vinod Saharan">
 
+<style>
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Segoe UI,sans-serif;
+    font-family:'Segoe UI',sans-serif;
 }
 
 body{
@@ -20,67 +22,39 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    background:linear-gradient(135deg,#0a0f1f,#0f2c6b,#081120);
+    background:linear-gradient(135deg,#081120,#0f2c6b,#0a0f1f);
     padding:20px;
 }
 
 .container{
     width:100%;
-    max-width:520px;
-    background:rgba(255,255,255,.08);
-    backdrop-filter:blur(18px);
-    border:1px solid rgba(255,255,255,.15);
+    max-width:550px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,0.15);
     border-radius:25px;
     padding:35px;
     text-align:center;
-    box-shadow:0 15px 40px rgba(0,0,0,.5);
+    box-shadow:0 15px 40px rgba(0,0,0,.45);
 }
 
-/* VS Logo */
+/* Logo */
 
-.logo{
-    width:130px;
-    height:130px;
-    margin:auto;
-    border-radius:25px;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    font-size:60px;
-    font-weight:900;
-
-    color:#ffffff;
-
-    background:linear-gradient(
-        145deg,
-        #58c4ff,
-        #0066ff
-    );
-
-    box-shadow:
-        0 0 25px #2196f3,
-        inset 0 3px 10px rgba(255,255,255,.4);
-
-    transform:rotate(-5deg);
-
-    text-shadow:
-        2px 2px 5px rgba(0,0,0,.4);
-
-    margin-bottom:20px;
-}
-
-.logo span{
-    transform:rotate(5deg);
+.logo-img{
+    width:140px;
+    height:140px;
+    object-fit:contain;
+    display:block;
+    margin:0 auto 15px;
+    filter:drop-shadow(0 0 25px #2196f3);
 }
 
 /* Branding */
 
 .brand-name{
-    color:white;
+    color:#fff;
     font-size:30px;
-    font-weight:bold;
+    font-weight:700;
 }
 
 .brand-sub{
@@ -89,17 +63,17 @@ body{
     margin-bottom:25px;
 }
 
-/* Heading */
+/* Title */
 
 .title{
-    color:white;
-    font-size:28px;
+    color:#fff;
+    margin-bottom:10px;
 }
 
 .subtitle{
     color:#dbeafe;
-    margin-top:10px;
     margin-bottom:25px;
+    line-height:1.6;
 }
 
 /* Input */
@@ -108,8 +82,8 @@ body{
     width:100%;
     padding:15px;
     border:none;
-    border-radius:15px;
     outline:none;
+    border-radius:15px;
     font-size:20px;
     text-align:center;
 }
@@ -118,57 +92,41 @@ body{
 
 .btn{
     width:100%;
-    margin-top:15px;
     padding:15px;
-
+    margin-top:15px;
     border:none;
     border-radius:15px;
-
-    color:white;
+    cursor:pointer;
+    color:#fff;
     font-size:18px;
     font-weight:bold;
-
-    cursor:pointer;
-
-    background:linear-gradient(
-        135deg,
-        #00c6ff,
-        #0072ff
-    );
-
+    background:linear-gradient(135deg,#00c6ff,#0072ff);
     transition:.3s;
 }
 
 .btn:hover{
     transform:translateY(-2px);
-
-    box-shadow:
-    0 10px 25px
-    rgba(0,114,255,.4);
+    box-shadow:0 10px 25px rgba(0,114,255,.4);
 }
 
 /* Result */
 
 .result{
     display:none;
-
     margin-top:25px;
-
     padding:20px;
-
     border-radius:20px;
-
     background:rgba(255,255,255,.08);
 }
 
 .result h3{
-    color:white;
+    color:#fff;
 }
 
 .answer{
     font-size:60px;
-    color:#00ff88;
     font-weight:bold;
+    color:#00ff88;
     margin-top:10px;
 }
 
@@ -184,7 +142,6 @@ body{
     color:#00c6ff;
     font-weight:bold;
 }
-
 </style>
 </head>
 
@@ -192,9 +149,8 @@ body{
 
 <div class="container">
 
-    <div class="logo">
-        <span>VS</span>
-    </div>
+    <!-- VS Logo PNG -->
+    <img src="vs-logo.png" alt="VS Logo" class="logo-img">
 
     <div class="brand-name">
         Vinod Saharan
@@ -210,7 +166,7 @@ body{
 
     <p class="subtitle">
         Enter up to 12 digits and get the final
-        single digit result instantly.
+        Single Digit Result instantly.
     </p>
 
     <input
@@ -220,24 +176,13 @@ body{
         class="input-box"
         placeholder="123456789123">
 
-    <button
-        class="btn"
-        onclick="calculateRoot()">
+    <button class="btn" onclick="calculateRoot()">
         Calculate Result
     </button>
 
-    <div
-        class="result"
-        id="resultBox">
-
+    <div class="result" id="resultBox">
         <h3>Single Digit Result</h3>
-
-        <div
-            class="answer"
-            id="answer">
-            0
-        </div>
-
+        <div class="answer" id="answer">0</div>
     </div>
 
     <div class="footer">
@@ -251,44 +196,27 @@ body{
 
 function calculateRoot(){
 
-    let num =
-    document.getElementById(
-        "numberInput"
-    ).value.trim();
+    let num = document
+        .getElementById("numberInput")
+        .value
+        .trim();
 
     if(!/^\d+$/.test(num)){
-        alert(
-        "Please enter digits only."
-        );
+        alert("Please enter digits only.");
         return;
     }
 
-    let total =
-    [...num].reduce(
-        (sum,d)=>
-        sum + Number(d),
-        0
-    );
+    let total = [...num]
+        .reduce((sum,d)=>sum + Number(d),0);
 
     while(total > 9){
-
-        total =
-        String(total)
-        .split('')
-        .reduce(
-            (sum,d)=>
-            sum + Number(d),
-            0
-        );
+        total = String(total)
+            .split('')
+            .reduce((sum,d)=>sum + Number(d),0);
     }
 
-    document.getElementById(
-        "answer"
-    ).innerText = total;
-
-    document.getElementById(
-        "resultBox"
-    ).style.display = "block";
+    document.getElementById("answer").innerText = total;
+    document.getElementById("resultBox").style.display = "block";
 }
 
 </script>
